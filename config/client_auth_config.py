@@ -1,5 +1,5 @@
 
 
 class TTS_TX_CONFIG:
-    SECRECT_ID = ''
-    SECRECT_KEY = ''
+    SECRECT_ID = 'AKIDFWyJOEpBZo5EAsLdjaHitsb5JJ2XGkz2'
+    SECRECT_KEY = 'vc5NSHrCIYj1oWDl9TZWGm5B5nXLxQjo'
