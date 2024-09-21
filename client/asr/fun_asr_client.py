@@ -1,6 +1,7 @@
 from funasr import AutoModel
 
 from utils.subtitle_utils import generate_srt
+from config.sys_config import get_model_path
 
 class asr_client():
     def __init__(self, funasr_model):
@@ -21,14 +22,14 @@ class asr_client():
 
 
 if __name__ == '__main__':
-    funasr_model = AutoModel(model="E:/modelscope/hub/iic/speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch",
+    funasr_model = AutoModel(model=get_model_path("iic/speech_seaco_paraformer_large_asr_nat-zh-cn-16k-common-vocab8404-pytorch"),
                              model_revision="v2.0.4",
-                             vad_model="E:/modelscope/hub/damo/speech_fsmn_vad_zh-cn-16k-common-pytorch",
-                             punc_model="E:/modelscope/hub/damo/punc_ct-transformer_zh-cn-common-vocab272727-pytorch",
-                             spk_model="E:/modelscope/hub/damo/speech_campplus_sv_zh-cn_16k-common"
+                             vad_model=get_model_path("damo/speech_fsmn_vad_zh-cn-16k-common-pytorch"),
+                             punc_model=get_model_path("damo/punc_ct-transformer_zh-cn-common-vocab272727-pytorch"),
+                             spk_model=get_model_path("damo/speech_campplus_sv_zh-cn_16k-common")
                              )
 
-    file_path = 'E:/github/gradio_agent/tmp_data/tts/001.wav'
+    file_path = 'D:/python/github/gradio_agent/tmp_data/tts/001.wav'
     client = asr_client(funasr_model)
     client.lang = 'zh'
     srt_file, sentence_info = client.recog(file_path)
